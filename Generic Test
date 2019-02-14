@@ -1,5 +1,3 @@
-package lab6;
-
 import week6.Pair;
 import java.util.ArrayList;
 
