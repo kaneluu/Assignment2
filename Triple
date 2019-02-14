@@ -1,0 +1,26 @@
+package lab6;
+
+public class Triple <A,B,C> {
+
+	A third;
+	B fourth;
+	C fifth;
+	
+	public Triple (A a, B b, C c) {
+		
+		third = a;
+		fourth = b;
+		fifth = c;
+	}
+	public A getThird () {
+		return third;
+	}
+	
+	public B getFourth () {
+		return fourth;
+	}
+	
+	public C getFifth () {
+		return fifth;
+	}
+}
