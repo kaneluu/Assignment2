@@ -1,0 +1,70 @@
+package lab6;
+
+import week6.Pair;
+import java.util.ArrayList;
+
+public class GenericsTest {
+
+	public static void main(String[] args) {
+		
+		// five instances of Triple class
+		Triple <String,Integer,Integer> tTeam1;
+		tTeam1 = new Triple<>("California",5,15);
+		Triple <String,Integer,Integer> tTeam2;
+		tTeam2 = new Triple<>("Nevada",10,10);
+		Triple <String,Integer,Integer> tTeam3;
+		tTeam3 = new Triple<>("Texas",15,5);
+		Triple <String,Integer,Integer> tTeam4;
+		tTeam4 = new Triple<>("Oregon",10,10);
+		Triple <String,Integer,Integer> tTeam5;
+		tTeam5 = new Triple<>("North Carolina",3,17);
+		
+		
+		// array of triple class type
+		Triple<String,Integer,Integer> [] aoTriple;
+		aoTriple = new Triple[5];
+		aoTriple[0] = tTeam1;
+		aoTriple[1] = tTeam2;
+		aoTriple[2] = tTeam3;
+		aoTriple[3] = tTeam4;
+		aoTriple[4] = tTeam5;
+		
+		// array of pair class type
+		Pair<String,Double> [] pDouble;
+		
+		pDouble = new Pair[5];
+		
+		Pair<String,Double> iTeam;
+		
+		// for loop for Triple
+		for (int x = 0; x < aoTriple.length; x++) {
+			
+			// calculate winning percentage
+			int totalGames = aoTriple[x].getFifth() + aoTriple[x].getFourth();
+			double winningPercentage =  ( (double)aoTriple[x].getFourth() * 100)  / totalGames   ;
+			iTeam = new Pair<>(aoTriple[x].getThird(), winningPercentage);
+			pDouble[x] = iTeam;
+			
+		}// end for loop for Triple 
+		
+		double highestWinningPercentage = 0.0;
+		String winningTeam = null;
+		
+		// for loop for Double
+			for (int x = 0; x < pDouble.length; x++) {
+				
+				double dPercent = (double) pDouble[x].getSecond();
+				if (dPercent > highestWinningPercentage){
+					// set new high winning percentage
+					highestWinningPercentage = dPercent;
+					// store highest winning percentage team
+					winningTeam = (String) pDouble[x].getFirst();
+				}
+
+				System.out.println(pDouble[x].getFirst() + "'s winning percentage: " + pDouble[x].getSecond() );
+			}// end for loop for Double
+			System.out.println("Winning Team: " + winningTeam);
+		
+	}// end main method
+
+}// end class
